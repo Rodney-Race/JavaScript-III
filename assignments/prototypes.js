@@ -16,44 +16,31 @@
     this.createdAt = properties.createdAt;
     this.name = properties.name;
     this.dimensions = properties.dimensions;
-  }
-  
-  
-  //* createdAt
-  //* name
-  //* dimensions (These represent the character's size in the video game)
   GameObject.prototype.destroy = function () {
     return `${this.name} was removed from the game.`;
+   };
   }
-  // prototype method that returns: (a name) + was removed from the game.
-
-
 
   // === CharacterStats ===
-  function CharacterStats (attributes) {
+  function CharacterStats(attributes) {
+    GameObject.call(this, attributes);
     this.healthPoints = attributes.healthPoints;
-  }
-  CharacterStats.prototype = Object.create(GameObject.prototype)
   CharacterStats.prototype.takeDamage = function () {
     return `${this.name} took damage.`;
+   };
   }
-  // * healthPoints
-  // * takeDamage() 
-  // prototype method -> returns the string '<object name> took damage.'
-  // * should inherit destroy() from GameObject's prototype
-
-
-
+  CharacterStats.prototype = Object.create(GameObject.prototype);
+ 
   // === Humanoid (Having an appearance or character resembling that of a human.) ===
   function Humanoid (attributes) {
     this.team = attributes.team;
     this.weapons = attributes.weapons;
     this.language = attributes.language;
+    Humanoid.prototype.greet = function() {
+      return `${this.name} offers a greeting in ${this.language}`;
+   };
   }
-  CharacterStats.prototype = Object.create(GameObject.prototype)
-  CharacterStats.prototype.takeDamage = function () {
-    return `${this.name} offers a greeting in ${this.language}.`;
-  }
+  Humanoid.prototype = Object.create(CharacterStats.prototype);
   // * team
   // * weapons
   // * language
