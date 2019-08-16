@@ -12,10 +12,10 @@
   
 
   //=== GameObject ===
-  function GameObject(properties) {
-    this.createdAt = properties.createdAt;
-    this.name = properties.name;
-    this.dimensions = properties.dimensions;
+  function GameObject(attributes) {
+    this.createdAt = attributes.createdAt;
+    this.name = attributes.name;
+    this.dimensions = attributes.dimensions;
   
   }
   GameObject.prototype.destroy = function () {
@@ -26,7 +26,9 @@
   function CharacterStats(attributes) {
     GameObject.call(this, attributes);
     this.healthPoints = attributes.healthPoints;
+    this.createdAt = attributes.createdAt;
     this.name = attributes.name;
+    this.dimensions = attributes.dimensions;
   }
   CharacterStats.prototype = Object.create(GameObject.prototype);
   CharacterStats.prototype.takeDamage = function () {
@@ -39,7 +41,10 @@
     this.team = attributes.team;
     this.weapons = attributes.weapons;
     this.language = attributes.language;
-    
+    this.createdAt = attributes.createdAt;
+    this.name = attributes.name;
+    this.dimensions = attributes.dimensions;
+    this.healthPoints = attributes.healthPoints;
   }
   Humanoid.prototype = Object.create(CharacterStats.prototype);
   Humanoid.prototype.greet = function() {
