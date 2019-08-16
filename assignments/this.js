@@ -21,7 +21,7 @@ function greetMe(name) {
     console.log('Good Morning ' + name);
     console.log(this);
 }
-greetMe('Rodney');
+greetMe('Rodney');//should say "Good Morning Rodney"
 
 /* Principle 2
 Whenever a function is called by a preceding dot, 
@@ -36,7 +36,7 @@ var greetMe = {
     }
 }
 
-greetMe.speak('Rodney');
+greetMe.speak('Rodney');//should say "Good Day Rodney"
 
 /* Principle 3
 Whenever a constructor function is used, this refers to the specific instance 
@@ -53,12 +53,12 @@ function GreetMe(name) {
 };
 var greetRodney = new GreetMe('Rodney');
 var greetMary = new GreetMe('Mary');
-greetRodney.speak();
-greetMary.speak();
+greetRodney.speak();//should say "Good Afternoon Rodney"
+greetMary.speak();//should say "Good Afternoon Mary"
 
 /*Principle 4
 Whenever JavaScript’s call or apply method is used, this is explicitly defined.
 code example for Explicit Binding
 */
-greetRodney.sayGoodbye.call(greetMary);
-greetMary.sayGoodbye.apply(greetRodney);
+greetRodney.sayGoodbye.call(greetMary);//should say "Goodbye Rodney"
+greetMary.sayGoodbye.apply(greetRodney);//should say "Goodbye Mary"
